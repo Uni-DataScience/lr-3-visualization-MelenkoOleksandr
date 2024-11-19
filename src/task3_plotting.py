@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
+import os
 
 def plot_1d(data):
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -15,6 +15,11 @@ def plot_1d(data):
     ax.grid(True, linestyle='--', alpha=0.7)
     
     plt.tight_layout()
+    
+    os.makedirs(os.path.dirname('plots/1d_line_plot.png'), exist_ok=True)
+    fig.savefig('plots/1d_line_plot.png')
+    print(f"Plot saved to plots/1d_line_plot.png")
+    
     plt.show()
     return fig
 
@@ -31,6 +36,11 @@ def plot_2d(x, y):
     ax.grid(True, linestyle='--', alpha=0.7)
     
     plt.tight_layout()
+
+    os.makedirs(os.path.dirname('plots/2d_scatter_plot.png'), exist_ok=True)
+    fig.savefig('plots/2d_scatter_plot.png')
+    print(f"Plot saved to plots/2d_scatter_plot.png")
+    
     plt.show()
     return fig
 
@@ -48,6 +58,11 @@ def plot_3d(x, y, z):
     ax.legend()
     
     plt.tight_layout()
+    
+    os.makedirs(os.path.dirname('plots/3d_scatter_plot.png'), exist_ok=True)
+    fig.savefig('plots/3d_scatter_plot.png')
+    print(f"Plot saved to plots/3d_scatter_plot.png")
+    
     plt.show()
     return fig
 

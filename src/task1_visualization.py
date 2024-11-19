@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
+import os
 
 def plot_distribution(data):
     # Count the frequency of each category
@@ -20,6 +21,11 @@ def plot_distribution(data):
     
     # Improve layout
     plt.tight_layout()
+    
+    os.makedirs(os.path.dirname('plots/bar_chart.png'), exist_ok=True)
+    fig.savefig('plots/bar_chart.png')
+    print(f"Plot saved to plots/bar_chart.png")
+    
     plt.show()
     return fig
 

@@ -2,7 +2,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 from matplotlib import pyplot as plt
-
+import os
 
 def create_scatter_plot(data):
     # Create the plot
@@ -17,6 +17,11 @@ def create_scatter_plot(data):
     
     # Enhance layout
     plt.tight_layout()
+    
+    os.makedirs(os.path.dirname('plots/scatter_plot.png'), exist_ok=True)
+    fig.savefig('plots/scatter_plot.png')
+    print(f"Plot saved to plots/scatter_plot.png")
+    
     plt.show()
     return fig
 
