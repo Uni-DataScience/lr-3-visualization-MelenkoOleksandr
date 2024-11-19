@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 
 
 def perform_eda(df):
-    # Descriptive Statistics
     print("Descriptive Statistics:")
     print(df.describe(), "\n")
     
