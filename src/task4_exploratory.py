@@ -5,16 +5,29 @@ from matplotlib import pyplot as plt
 
 
 def perform_eda(df):
-    """
-    Performs EDA including descriptive statistics, outlier detection,
-    and correlation analysis.
+    # Descriptive Statistics
+    print("Descriptive Statistics:")
+    print(df.describe(), "\n")
+    
+    # Outlier Detection (Box Plot)
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=df, palette="Set2")
+    plt.title('Box Plot for Outlier Detection', fontsize=14)
+    plt.xlabel('Variables', fontsize=12)
+    plt.ylabel('Value Range', fontsize=12)
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+    
+    # Correlation Matrix and Heatmap
+    correlation_matrix = df.corr()
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True)
+    plt.title('Correlation Matrix Heatmap', fontsize=14)
+    plt.tight_layout()
+    plt.show()
 
-    Parameters:
-    df (DataFrame): A DataFrame containing data for EDA.
-    """
-    pass
 
-# Example data
 df = pd.DataFrame({
     'A': np.random.rand(50),
     'B': np.random.rand(50) * 10,
